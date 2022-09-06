@@ -5,15 +5,15 @@ import os
 folders = [i for i in os.listdir('.') if os.path.isdir(i)]
 
 qrc_content_start = \
-'''
-<RCC>
-    <qresource prefix="/">
-'''
+    '''
+    <RCC>
+        <qresource prefix="/">
+    '''
 qrc_content_end = \
-'''
-    </qresource>
-</RCC>
-'''
+    '''
+        </qresource>
+    </RCC>
+    '''
 
 qrc_content = qrc_content_start
 
@@ -23,4 +23,3 @@ for folder in folders:
 
 qrc_content += qrc_content_end
 print(qrc_content)
-

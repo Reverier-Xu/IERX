@@ -45,6 +45,7 @@
         <file>assets/flashlight.svg</file>
         <file>assets/edit-arrow-back.svg</file>
         <file>assets/chat-dismiss.svg</file>
+        <file>assets/logo.svg</file>
         <file>assets/design-ideas.svg</file>
         <file>assets/globe-clock.svg</file>
         <file>assets/table-insert-row.svg</file>
@@ -647,6 +648,7 @@
         <file>assets/cube.svg</file>
         <file>assets/chat-arrow-back.svg</file>
         <file>assets/person-lock.svg</file>
+        <file>assets/hexagon.svg</file>
         <file>assets/align-center-vertical.svg</file>
         <file>assets/dentist.svg</file>
         <file>assets/voicemail-subtract.svg</file>
@@ -903,5 +905,7 @@
         <file>assets/chevron-left.svg</file>
         <file>assets/star-off.svg</file>
         <file>assets/document-header-arrow-down.svg</file>
+
     </qresource>
 </RCC>
+
