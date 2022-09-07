@@ -14,27 +14,29 @@
 #include <QQmlApplicationEngine>
 #include <QtConcurrent>
 #include "launcher.h"
+#include "platform.h"
 
 IERXApp::IERXApp(QObject *parent) : QObject(parent) {
     mLauncher = new Launcher(this);
+    mPlatform = new Platform(this);
 }
 
 IERXApp::~IERXApp() = default;
 
 void IERXApp::initialize() {
     mLauncher->show();
-    auto res = QtConcurrent::run([this]() {
-        for (int i = 0; i < 11; ++i) {
-            QThread::sleep(1);
-            this->mLauncher->setProgress(i * 10);
-        }
-        QThread::sleep(1);
-        return;
+    connect(mPlatform, &Platform::initStateChanged, [=](const QString& tips, int progress){
+        mLauncher->setTips(tips);
+        mLauncher->setProgress(progress);
     });
-    auto *resWatcher = new QFutureWatcher<void>(this);
-    resWatcher->setFuture(res);
-    connect(resWatcher, &QFutureWatcher<void>::finished, [=]() {
+    auto initPromise = QtConcurrent::run([=](){
+        mPlatform->initialize();
+    });
+    auto initWatcher = new QFutureWatcher<void>(this);
+    initWatcher->setFuture(initPromise);
+    connect(initWatcher, &QFutureWatcher<void>::finished, [=](){
+        initWatcher->deleteLater();
         mLauncher->finish();
-        resWatcher->deleteLater();
+        mPlatform->show();
     });
 }

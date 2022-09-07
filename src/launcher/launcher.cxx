@@ -15,15 +15,15 @@
 #include <QQuickWindow>
 
 
-QString LauncherData_::tips() const {
+QString LauncherDataPrivate_::tips() const {
     return mTips;
 }
 
-int LauncherData_::progress() const {
+int LauncherDataPrivate_::progress() const {
     return mProgress;
 }
 
-void LauncherData_::setTips(QString tips) {
+void LauncherDataPrivate_::setTips(QString tips) {
     if (mTips == tips)
         return;
 
@@ -31,7 +31,7 @@ void LauncherData_::setTips(QString tips) {
     emit tipsChanged(mTips);
 }
 
-void LauncherData_::setProgress(int progress) {
+void LauncherDataPrivate_::setProgress(int progress) {
     if (mProgress == progress)
         return;
 
@@ -40,7 +40,7 @@ void LauncherData_::setProgress(int progress) {
 }
 
 Launcher::Launcher(QObject *parent) : QObject(parent) {
-    mData = new LauncherData_();
+    mData = new LauncherDataPrivate_();
     mData->setParent(this);
     mUiEngine = new QQmlEngine(this);
     mUiEngine->rootContext()->setContextProperty("launcher", mData);

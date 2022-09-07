@@ -12,13 +12,15 @@
 
 #include <QObject>
 
-class QQmlApplicationEngine;
+
 class Launcher;
+class Platform;
 
 class IERXApp : public QObject {
     Q_OBJECT
     private:
     Launcher *mLauncher;
+    Platform *mPlatform;
 
     public:
     explicit IERXApp(QObject *parent = nullptr);

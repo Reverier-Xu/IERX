@@ -15,7 +15,7 @@ class QQmlEngine;
 class QQmlComponent;
 class QQuickWindow;
 
-class LauncherData_ : public QObject {
+class LauncherDataPrivate_ : public QObject {
     Q_OBJECT
     Q_PROPERTY(QString tips READ tips WRITE setTips NOTIFY tipsChanged)
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
@@ -47,7 +47,7 @@ class Launcher : public QObject {
     QQmlEngine *mUiEngine;
     QQmlComponent *mUiComponent;
     QQuickWindow *mWindow{};
-    LauncherData_ *mData{};
+    LauncherDataPrivate_ *mData{};
 
     public:
     explicit Launcher(QObject *parent = nullptr);

@@ -18,7 +18,7 @@ set(
 
 add_executable(${PROJECT_NAME} ${IERX_APP_SRCS})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE ${QT_LIBRARIES} IERX::Resources IERX::Launcher)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${QT_LIBRARIES} IERX::Resources IERX::Launcher IERX::Platform)
 
 set_target_properties(
     ${PROJECT_NAME}
