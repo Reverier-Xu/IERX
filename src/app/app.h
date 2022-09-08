@@ -13,17 +13,24 @@
 #include <QObject>
 
 
+namespace IERX {
 class Launcher;
+
 class Platform;
 
-class IERXApp : public QObject {
-    Q_OBJECT
-    private:
-    Launcher *mLauncher;
-    Platform *mPlatform;
+class App : public QObject {
+   Q_OBJECT
+   private:
+    Launcher* mLauncher;
 
-    public:
-    explicit IERXApp(QObject *parent = nullptr);
-    ~IERXApp() override;
+    Platform* mPlatform;
+
+   public:
+    explicit App(QObject* parent = nullptr);
+
+    ~App() override;
+
     void initialize();
 };
+
+} // namespace IERX

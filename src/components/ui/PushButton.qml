@@ -20,10 +20,10 @@ PushArea {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: root.showText ? parent.left : undefined
         anchors.horizontalCenter: root.showText ? undefined : parent.horizontalCenter
-        anchors.leftMargin: root.contentSize * 0.8
+        anchors.leftMargin: root.contentSize * 0.6
         sourceSize: Qt.size(root.contentSize, root.contentSize)
-        smooth: true
-        antialiasing: true
+        smooth: false
+        antialiasing: false
         visible: root.showIcon
     }
 
@@ -36,7 +36,7 @@ PushArea {
         color: contentColor
         Behavior on color {
             ColorAnimation {
-                duration: 200
+                duration: Style.microAnimDuration
             }
         }
         font.pixelSize: root.contentSize

@@ -11,29 +11,42 @@
 #pragma once
 #include <QObject>
 
+
 class QQmlEngine;
+
 class QQmlComponent;
+
 class QQuickWindow;
 
+namespace IERX {
+
+class Project;
+
 class PlatformDataPrivate_ : public QObject {
-    Q_OBJECT
-    public:
+   Q_OBJECT
+   public:
     Q_INVOKABLE void requestQuit();
 
-    signals:
+   signals:
+
     void quitRequested();
 };
 
 class Platform : public QObject {
-    Q_OBJECT
-    private:
-    QQmlEngine *mUiEngine;
-    QQmlComponent *mUiComponent;
-    QQuickWindow *mWindow{};
-    PlatformDataPrivate_ *mData{};
+   Q_OBJECT
+   private:
+    QQmlEngine* mUiEngine;
 
-    public:
-    explicit Platform(QObject *parent = nullptr);
+    QQmlComponent* mUiComponent;
+
+    QQuickWindow* mWindow{};
+
+    PlatformDataPrivate_* mData{};
+
+    Project* m_project;
+
+   public:
+    explicit Platform(QObject* parent = nullptr);
 
     ~Platform() override;
 
@@ -43,6 +56,9 @@ class Platform : public QObject {
 
     void handleQuit();
 
-    signals:
+   signals:
+
     void initStateChanged(QString tips, int progress);
 };
+
+}

@@ -99,6 +99,7 @@ Window {
             anchors.bottom: sidestack.bottom
             width: 1
             color: sidestackDragArea.pressed ? Style.accentColor : Style.dividerColor
+            Behavior on color { ColorAnimation { duration: Style.microAnimDuration } }
 
             property double percent: 0.25
             x: percent * root.width
@@ -137,6 +138,7 @@ Window {
             anchors.right: bottomstack.right
             height: 1
             color: bottomstackDragArea.pressed ? Style.accentColor : Style.dividerColor
+            Behavior on color { ColorAnimation { duration: Style.microAnimDuration } }
 
             property double percent: 0.7
             y: percent * root.height

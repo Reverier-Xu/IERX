@@ -14,7 +14,7 @@
 #include <QQmlComponent>
 #include <QQuickWindow>
 
-
+namespace IERX {
 QString LauncherDataPrivate_::tips() const {
     return mTips;
 }
@@ -39,21 +39,21 @@ void LauncherDataPrivate_::setProgress(int progress) {
     emit progressChanged(mProgress);
 }
 
-Launcher::Launcher(QObject *parent) : QObject(parent) {
+Launcher::Launcher(QObject* parent) : QObject(parent) {
     mData = new LauncherDataPrivate_();
     mData->setParent(this);
     mUiEngine = new QQmlEngine(this);
     mUiEngine->rootContext()->setContextProperty("launcher", mData);
     mUiComponent = new QQmlComponent(mUiEngine, this);
     mUiComponent->loadUrl(QUrl(QStringLiteral("qrc:/launcher/ui/Launcher.qml")));
-    mWindow = qobject_cast<QQuickWindow *>(mUiComponent->create());
+    mWindow = qobject_cast<QQuickWindow*>(mUiComponent->create());
 }
 
 Launcher::~Launcher() = default;
 
 void Launcher::show() {
     mWindow->show();
-    mData->setTips("Loading...");
+    mData->setTips(tr("Loading..."));
 }
 
 void Launcher::finish() {
@@ -69,4 +69,6 @@ void Launcher::setProgress(int progress) {
 
 void Launcher::setTips(const QString& tips) {
     mData->setTips(tips);
+}
+
 }

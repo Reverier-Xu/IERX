@@ -14,7 +14,8 @@
 #include <QIcon>
 #include "app.h"
 
-int main(int argc, char *argv[]) {
+
+int main(int argc, char* argv[]) {
     QApplication _app(argc, argv);
     QApplication::setApplicationDisplayName("IERX");
     QApplication::setApplicationName("IERX");
@@ -28,7 +29,7 @@ int main(int argc, char *argv[]) {
     parser.addVersionOption();
     parser.process(_app);
 
-    IERXApp app;
+    IERX::App app;
     app.initialize();
 
     return QApplication::exec();

@@ -11,6 +11,10 @@ QtObject {
     property color activeColor3: '#30FFFFFF'
     property color activeColorDimmed: '#05FFFFFF'
     property color disabledColor: '#20808080'
-    property color disabledContentColor: '#80808080'
+    property color disabledContentColor: '#808080'
     property color dividerColor: '#606060'
+    property int microAnimDuration: 100
+    property int midAnimDuration: 200
+    property int normalAnimDuration: 300
+    property int longAnimDuration: 500
 }

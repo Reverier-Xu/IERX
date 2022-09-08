@@ -6,7 +6,7 @@ Rectangle {
     property bool flat: false
     property color normalColor: flat ? "transparent" : Style.activeColor1
     property color hoverColor: Style.activeColor2
-    property color pressedColor: Style.activeColorDimmed
+    property color pressedColor: Style.activeColor1
     property color disabledColor: Style.disabledColor
     property color borderColor: flat ? "transparent" : Style.activeColor3
     property color borderDisabledColor: Style.disabledColor
@@ -27,8 +27,8 @@ Rectangle {
         property bool pressed: false
         property bool hovered: false
 
-        onClicked: root.clicked(mouse)
-        onDoubleClicked: root.doubleClicked(mouse)
+        onClicked: mouse => root.clicked(mouse)
+        onDoubleClicked: mouse => root.doubleClicked(mouse)
         onEntered: {
             if (!pressed) {
                 parent.state="Hovering"
@@ -104,7 +104,7 @@ Rectangle {
 
     Behavior on color {
         ColorAnimation {
-            duration: 120
+            duration: Style.microAnimDuration
         }
     }
 }

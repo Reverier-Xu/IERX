@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import "qrc:/components/ui"
 
 Rectangle {
     id: root
@@ -12,7 +13,7 @@ Rectangle {
 
     Behavior on opacity {
         NumberAnimation {
-            duration: 500
+            duration: Style.longAnimDuration
         }
     }
 

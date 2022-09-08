@@ -13,8 +13,8 @@ set(VERSION_MINOR 1)
 set(VERSION_PATCH 0)
 
 list(
-    APPEND CMAKE_MODULE_PATH
-    ${CMAKE_SOURCE_DIR}/cmake
+        APPEND CMAKE_MODULE_PATH
+        ${CMAKE_SOURCE_DIR}/cmake
 )
 
 include(GenerateExportHeader)
@@ -25,10 +25,10 @@ include(CheckFunctionExists)
 include(IERXMacros)
 
 project(
-    IERX
-    DESCRIPTION "Interactive Explorer for Reversing X"
-    VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
-    LANGUAGES C CXX
+        IERX
+        DESCRIPTION "Interactive Explorer for Reversing X"
+        VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+        LANGUAGES C CXX
 )
 
 set(CMAKE_CXX_STANDARD 17)

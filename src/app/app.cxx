@@ -16,27 +16,30 @@
 #include "launcher.h"
 #include "platform.h"
 
-IERXApp::IERXApp(QObject *parent) : QObject(parent) {
+namespace IERX {
+App::App(QObject* parent) : QObject(parent) {
     mLauncher = new Launcher(this);
     mPlatform = new Platform(this);
 }
 
-IERXApp::~IERXApp() = default;
+App::~App() = default;
 
-void IERXApp::initialize() {
+void App::initialize() {
     mLauncher->show();
-    connect(mPlatform, &Platform::initStateChanged, [=](const QString& tips, int progress){
+    connect(mPlatform, &Platform::initStateChanged, [=](const QString& tips, int progress) {
         mLauncher->setTips(tips);
         mLauncher->setProgress(progress);
     });
-    auto initPromise = QtConcurrent::run([=](){
+    auto initPromise = QtConcurrent::run([=]() {
         mPlatform->initialize();
     });
     auto initWatcher = new QFutureWatcher<void>(this);
     initWatcher->setFuture(initPromise);
-    connect(initWatcher, &QFutureWatcher<void>::finished, [=](){
+    connect(initWatcher, &QFutureWatcher<void>::finished, [=]() {
         initWatcher->deleteLater();
         mLauncher->finish();
         mPlatform->show();
     });
 }
+
+} // namespace IERX

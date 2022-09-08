@@ -20,42 +20,42 @@ function(ierx_add_library target)
     add_library(IERX::${shortTargetName} ALIAS ${target})
 
     generate_export_header(
-        ${target}
-        EXPORT_FILE_NAME ${shortTargetNameToLower}export.h
+            ${target}
+            EXPORT_FILE_NAME ${shortTargetNameToLower}export.h
     )
 
     target_include_directories(
-        ${target}
-        INTERFACE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}> # useful for the "something.export.h" includes
+            ${target}
+            INTERFACE
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}> # useful for the "something.export.h" includes
     )
 
     target_include_directories(
-        ${target}
-        PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> # useful for the "something.h" includes
+            ${target}
+            PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}> # useful for the "something.h" includes
     )
 
     set_target_properties(
-        ${target} PROPERTIES
-        VERSION ${IERX_PLUGIN_VERSION}
-        SOVERSION ${IERX_BINARY_VERSION}
-        AUTOMOC ON
-        AUTORCC ON
-        AUTOUIC ON
-        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
-        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+            ${target} PROPERTIES
+            VERSION ${IERX_PLUGIN_VERSION}
+            SOVERSION ${IERX_BINARY_VERSION}
+            AUTOMOC ON
+            AUTORCC ON
+            AUTOUIC ON
+            ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
+            LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib
     )
 
     install(
-        TARGETS ${target}
-        LIBRARY
-        COMPONENT Libraries
-        NAMELINK_SKIP
+            TARGETS ${target}
+            LIBRARY
+            COMPONENT Libraries
+            NAMELINK_SKIP
     )
 
     install(
-        FILES ${ARGS_HEADERS}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${shortTargetNameToLower} COMPONENT Devel
+            FILES ${ARGS_HEADERS}
+            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${shortTargetNameToLower} COMPONENT Devel
     )
 endfunction()

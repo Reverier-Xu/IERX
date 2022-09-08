@@ -9,14 +9,14 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(
-    RESOURCES
-    icons.qrc
+        RESOURCES
+        icons.qrc
 )
 
 ierx_add_library(
-    IERXResources
-    SOURCES
-    ${RESOURCES}
+        IERXResources
+        SOURCES
+        ${RESOURCES}
 )
 
 target_link_libraries(IERXResources PRIVATE ${QT_LIBRARIES})

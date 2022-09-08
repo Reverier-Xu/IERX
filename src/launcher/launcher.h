@@ -11,46 +11,56 @@
 #pragma once
 #include <QObject>
 
+
 class QQmlEngine;
+
 class QQmlComponent;
+
 class QQuickWindow;
 
+namespace IERX {
+
 class LauncherDataPrivate_ : public QObject {
-    Q_OBJECT
+   Q_OBJECT
     Q_PROPERTY(QString tips READ tips WRITE setTips NOTIFY tipsChanged)
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
 
-    private:
+   private:
     QString mTips{};
+
     int mProgress{};
 
-    public:
+   public:
     [[nodiscard]] QString tips() const;
 
     [[nodiscard]] int progress() const;
 
-    public slots:
+   public slots:
     Q_INVOKABLE void setTips(QString tips);
 
     Q_INVOKABLE void setProgress(int progress);
 
-    signals:
+   signals:
+
     void tipsChanged(QString tips);
 
     void progressChanged(int progress);
 };
 
 class Launcher : public QObject {
-    Q_OBJECT
+   Q_OBJECT
 
-    private:
-    QQmlEngine *mUiEngine;
-    QQmlComponent *mUiComponent;
-    QQuickWindow *mWindow{};
-    LauncherDataPrivate_ *mData{};
+   private:
+    QQmlEngine* mUiEngine;
 
-    public:
-    explicit Launcher(QObject *parent = nullptr);
+    QQmlComponent* mUiComponent;
+
+    QQuickWindow* mWindow{};
+
+    LauncherDataPrivate_* mData{};
+
+   public:
+    explicit Launcher(QObject* parent = nullptr);
 
     ~Launcher() override;
 
@@ -63,3 +73,5 @@ class Launcher : public QObject {
     void setProgress(int progress);
 
 };
+
+}

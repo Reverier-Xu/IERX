@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import "qrc:/components/ui"
 
 Window {
     id: root
@@ -12,8 +13,8 @@ Window {
 
     Rectangle {
         id: background
-        color: "#161616"
-        border.color: "#606060"
+        color: Style.backgroundColor
+        border.color: Style.dividerColor
         border.width: 1
         anchors.fill: parent
 
@@ -89,7 +90,7 @@ Window {
             width: 128
             height: 128
             opacity: active ? 1 : 0
-            Behavior on opacity { NumberAnimation { duration: 800 } }
+            Behavior on opacity { NumberAnimation { duration: Style.longAnimDuration } }
         }
 
         Text {
@@ -111,7 +112,7 @@ Window {
             anchors.bottomMargin: 2
             width: (parent.width - 4) * launcher.progress / 100
 
-            Behavior on width { NumberAnimation { duration: 300; easing.type: Easing.OutExpo } }
+            Behavior on width { NumberAnimation { duration: Style.normalAnimDuration; easing.type: Easing.OutExpo } }
         }
     }
 

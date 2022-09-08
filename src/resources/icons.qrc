@@ -1,5 +1,8 @@
-<RCC>
-    <qresource prefix="/">
+
+    <RCC>
+        <qresource prefix="/">
+            <file>i18n/en.ts</file>
+        <file>i18n/zh.ts</file>
         <file>assets/edit-prohibited.svg</file>
         <file>assets/calendar-mail.svg</file>
         <file>assets/comment-checkmark.svg</file>
@@ -516,6 +519,7 @@
         <file>assets/square-hint.svg</file>
         <file>assets/scan-camera.svg</file>
         <file>assets/clipboard-letter.svg</file>
+        <file>assets/fake.png</file>
         <file>assets/fax.svg</file>
         <file>assets/ribbon.svg</file>
         <file>assets/align-left.svg</file>
@@ -705,6 +709,7 @@
         <file>assets/emoji-sad.svg</file>
         <file>assets/chevron-circle-down.svg</file>
         <file>assets/laptop.svg</file>
+        <file>assets/reverier.svg</file>
         <file>assets/table-move-left.svg</file>
         <file>assets/table-freeze-column-and-row.svg</file>
         <file>assets/mail-list.svg</file>
@@ -905,6 +910,7 @@
         <file>assets/chevron-left.svg</file>
         <file>assets/star-off.svg</file>
         <file>assets/document-header-arrow-down.svg</file>
-    </qresource>
-</RCC>
 
+        </qresource>
+    </RCC>
+    

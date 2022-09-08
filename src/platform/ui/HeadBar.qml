@@ -5,22 +5,44 @@ Rectangle {
     id: root
     color: Style.backgroundColor
 
-    Image {
-        id: logoImage
-        sourceSize: Qt.size(24, 24)
-        source: "qrc:/assets/logo.svg"
-        anchors.verticalCenter: parent.verticalCenter
+    PushButton {
+        id: projectButton
+        icon: project.available ? "qrc:/assets/star.svg" : "qrc:/assets/star-off.svg"
+        text: qsTr("No Active Project")
+        contentColor: project.available ? Style.contentColor : Style.disabledContentColor
         anchors.left: parent.left
-        anchors.leftMargin: 6
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        flat: true
     }
 
-    Text {
-        id: projectText
-        text: "No Active Project"
-        font.pixelSize: 16
-        color: Style.contentColor
-        anchors.left: logoImage.right
-        anchors.leftMargin: 6
-        anchors.verticalCenter: parent.verticalCenter
+    PushButton {
+        id: aboutButton
+        icon: "qrc:/assets/info.svg"
+        showText: false
+        anchors.right: settingsButton.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        flat: true
+    }
+
+    PushButton {
+        id: settingsButton
+        icon: "qrc:/assets/settings.svg"
+        showText: false
+        anchors.right: moreButton.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        flat: true
+    }
+
+    PushButton {
+        id: moreButton
+        icon: "qrc:/assets/navigation.svg"
+        showText: false
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        flat: true
     }
 }
