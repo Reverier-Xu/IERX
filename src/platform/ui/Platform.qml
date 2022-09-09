@@ -1,8 +1,10 @@
-import QtQuick 2.15
-import QtQuick.Window 2.15
+import QtQuick 6.3
+import QtQuick.Controls 6.3
+import QtQuick.Controls.Universal 6.3
+import QtQuick.Window 6.3
 import "qrc:/components/ui"
 
-Window {
+ApplicationWindow {
     id: root
     flags: Qt.Window
     visible: true
@@ -12,13 +14,18 @@ Window {
     height: 700
     minimumHeight: 700
 
+    Universal.theme: Universal.Dark
+    Universal.accent: Style.accentColor
+    Universal.foreground: Style.contentColor
+    Universal.background: Style.backgroundColor
+
     Rectangle {
         id: centralWidget
         anchors.fill: parent
         color: Style.backgroundColor
 
         HeadBar {
-            id: headbar
+            id: headBar
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
@@ -26,50 +33,50 @@ Window {
         }
 
         Rectangle {
-            id: headbarDivider
-            anchors.left: headbar.left
-            anchors.top: headbar.bottom
-            anchors.right: headbar.right
+            id: headBarDivider
+            anchors.left: headBar.left
+            anchors.top: headBar.bottom
+            anchors.right: headBar.right
             height: 1
             color: Style.dividerColor
         }
 
         SideBar {
-            id: sidebar
+            id: sideBar
             anchors.left: parent.left
-            anchors.top: headbarDivider.bottom
-            anchors.bottom: statusbarDivider.top
+            anchors.top: headBarDivider.bottom
+            anchors.bottom: statusBarDivider.top
             width: 32
         }
 
         Rectangle {
-            id: sidebarDivider
-            anchors.left: sidebar.right
-            anchors.top: sidebar.top
-            anchors.bottom: sidebar.bottom
+            id: sideBarDivider
+            anchors.left: sideBar.right
+            anchors.top: sideBar.top
+            anchors.bottom: sideBar.bottom
             width: 1
             color: Style.dividerColor
         }
 
         BottomBar {
-            id: bottombar
-            anchors.bottom: statusbarDivider.top
-            anchors.left: sidebarDivider.right
+            id: bottomBar
+            anchors.bottom: statusBarDivider.top
+            anchors.left: sideBarDivider.right
             anchors.right: parent.right
             height: 32
         }
 
         Rectangle {
-            id: bottombarDivider
-            anchors.left: bottombar.left
-            anchors.right: bottombar.right
-            anchors.bottom: bottombar.top
+            id: bottomBarDivider
+            anchors.left: bottomBar.left
+            anchors.right: bottomBar.right
+            anchors.bottom: bottomBar.top
             height: 1
             color: Style.dividerColor
         }
 
         StatusBar {
-            id: statusbar
+            id: statusBar
             anchors.left: parent.left
             anchors.bottom: parent.bottom
             anchors.right: parent.right
@@ -77,98 +84,72 @@ Window {
         }
 
         Rectangle {
-            id: statusbarDivider
-            anchors.left: statusbar.left
-            anchors.right: statusbar.right
-            anchors.bottom: statusbar.top
+            id: statusBarDivider
+            anchors.left: statusBar.left
+            anchors.right: statusBar.right
+            anchors.bottom: statusBar.top
             height: 1
             color: Style.dividerColor
         }
 
-        SideStack {
-            id: sidestack
-            anchors.left: sidebarDivider.right
-            anchors.top: headbarDivider.bottom
-            anchors.bottom: bottombarDivider.top
-            anchors.right: sidestackDivider.left
-        }
-
-        Rectangle {
-            id: sidestackDivider
-            anchors.top: sidestack.top
-            anchors.bottom: sidestack.bottom
-            width: 1
-            color: sidestackDragArea.pressed ? Style.accentColor : Style.dividerColor
-            Behavior on color { ColorAnimation { duration: Style.microAnimDuration } }
-
-            property double percent: 0.25
-            x: percent * root.width
-
-            MouseArea {
-                 id: sidestackDragArea
-                 hoverEnabled: true
-                 cursorShape: containsMouse ? Qt.SizeHorCursor : Qt.ArrowCursor
-                 anchors.horizontalCenter: parent.horizontalCenter
-                 anchors.top: parent.top
-                 anchors.bottom: parent.bottom
-                 width: 3
-
-                 drag.target: parent
-                 drag.axis: Drag.XAxis
-                 drag.minimumX: sidestack.x + 200
-                 drag.maximumX: root.width - 400
-
-                 onReleased: {
-                     sidestackDivider.percent = sidestackDivider.x / root.width
-                 }
-            }
-        }
-
-        BottomStack {
-            id: bottomstack
-            anchors.left: sidestackDivider.right
-            anchors.bottom: bottombarDivider.top
+        SplitView {
+            id: horSplitView
+            anchors.left: sideBarDivider.right
+            anchors.top: headBarDivider.bottom
+            anchors.bottom: bottomBarDivider.top
             anchors.right: parent.right
-            anchors.top: bottomstackDivider.bottom
-        }
 
-        Rectangle {
-            id: bottomstackDivider
-            anchors.left: bottomstack.left
-            anchors.right: bottomstack.right
-            height: 1
-            color: bottomstackDragArea.pressed ? Style.accentColor : Style.dividerColor
-            Behavior on color { ColorAnimation { duration: Style.microAnimDuration } }
+            orientation: Qt.Horizontal
 
-            property double percent: 0.7
-            y: percent * root.height
-
-            MouseArea {
-                 id: bottomstackDragArea
-                 hoverEnabled: true
-                 cursorShape: containsMouse ? Qt.SizeVerCursor : Qt.ArrowCursor
-                 anchors.verticalCenter: parent.verticalCenter
-                 anchors.left: parent.left
-                 anchors.right: parent.right
-                 height: 3
-
-                 drag.target: parent
-                 drag.axis: Drag.YAxis
-                 drag.minimumY: 200
-                 drag.maximumY: root.height - 200
-
-                 onReleased: {
-                     bottomstackDivider.percent = bottomstackDivider.y / root.height
-                 }
+            SideStack {
+                id: sideStack
+                implicitWidth: 200
+                SplitView.minimumWidth: 150
             }
-        }
 
-        MainStack {
-            id: mainstack
-            anchors.left: sidestackDivider.right
-            anchors.top: headbarDivider.bottom
-            anchors.right: parent.right
-            anchors.bottom: bottomstackDivider.top
+            SplitView {
+                id: verSplitView
+                orientation: Qt.Vertical
+
+                SplitView.minimumWidth: 500
+                SplitView.fillWidth: true
+
+                MainStack {
+                    id: mainStack
+                    SplitView.minimumHeight: 300
+                    SplitView.fillHeight: true
+                }
+
+                BottomStack {
+                    id: bottomStack
+                    implicitHeight: 180
+                    SplitView.minimumHeight: 150
+                }
+
+                handle: Rectangle {
+                    id: verSplitHandle
+                    implicitHeight: 1
+                    color: SplitHandle.pressed ? Style.accentColor : Style.dividerColor
+
+                    containmentMask: Item {
+                        y: (verSplitHandle.height - height) / 2
+                        height: 7
+                        width: verSplitView.width
+                    }
+                }
+            }
+
+            handle: Rectangle {
+                id: horSplitHandle
+                implicitWidth: 1
+                color: SplitHandle.pressed ? Style.accentColor : Style.dividerColor
+
+                containmentMask: Item {
+                    x: (horSplitHandle.width - width) / 2
+                    width: 7
+                    height: horSplitView.height
+                }
+            }
         }
     }
 

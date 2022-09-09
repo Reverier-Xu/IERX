@@ -41,8 +41,8 @@ set(IERX_BINARY_VERSION ${VERSION_MAJOR}${VERSION_MINOR})
 # plugin version as used e.g. in plugin installation path
 set(IERX_PLUGIN_VERSION ${VERSION_MAJOR}${VERSION_MINOR})
 
-find_package(Qt6 6.3 REQUIRED COMPONENTS Core Widgets Network Qml Quick Concurrent WebEngineWidgets Sql)
-set(QT_LIBRARIES Qt6::Core Qt6::Widgets Qt6::Network Qt6::Quick Qt6::Qml Qt6::Concurrent Qt6::WebEngineWidgets Qt6::Sql)
+find_package(Qt6 6.3 REQUIRED COMPONENTS Core Widgets Network Qml Quick Concurrent WebEngineWidgets Sql QuickControls2)
+set(QT_LIBRARIES Qt6::Core Qt6::Widgets Qt6::Network Qt6::Quick Qt6::Qml Qt6::Concurrent Qt6::WebEngineWidgets Qt6::Sql Qt6::QuickControls2)
 
 if (APPLE)
     find_package(Qt6 REQUIRED COMPONENTS MacExtras)

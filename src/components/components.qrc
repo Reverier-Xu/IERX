@@ -1,18 +1,10 @@
 <RCC>
     <qresource prefix="/components">
         <file>ui/qmldir</file>
-        <file>ui/CheckBox.qml</file>
         <file>ui/Label.qml</file>
-        <file>ui/LineEdit.qml</file>
         <file>ui/Loader.qml</file>
-        <file>ui/Menu.qml</file>
-        <file>ui/ProgressBar.qml</file>
-        <file>ui/PushArea.qml</file>
         <file>ui/PushButton.qml</file>
-        <file>ui/ScrollBar.qml</file>
-        <file>ui/Slider.qml</file>
         <file>ui/Style.qml</file>
-        <file>ui/Switch.qml</file>
-        <file>ui/TextEdit.qml</file>
+        <file>ui/WrappedMenu.qml</file>
     </qresource>
 </RCC>

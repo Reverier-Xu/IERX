@@ -1,45 +1,15 @@
-import QtQuick 2.15
+import QtQuick 6.3
+import QtQuick.Controls 6.3
+import QtQuick.Controls.Universal 6.3
 import "."
 
-PushArea {
+Button {
     id: root
-    property int contentSize: 16
-    property bool showIcon: true
-    property bool showText: true
-    property bool primary: false
-    property color contentColor: Style.contentColor
-    property alias text: text_.text
-    property alias icon: icon_.source
-
-    width: (showText ? text_.width : 0) + contentSize * 1.6 + (showIcon ? contentSize : 0)
-
-    Image {
-        id: icon_
-        width: root.contentSize
-        height: root.contentSize
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: root.showText ? parent.left : undefined
-        anchors.horizontalCenter: root.showText ? undefined : parent.horizontalCenter
-        anchors.leftMargin: root.contentSize * 0.6
-        sourceSize: Qt.size(root.contentSize, root.contentSize)
-        smooth: false
-        antialiasing: false
-        visible: root.showIcon
-    }
-
-    Text {
-        id: text_
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: root.showIcon ? icon_.right : undefined
-        anchors.leftMargin: root.contentSize * 0.5
-        anchors.horizontalCenter: root.showIcon ? undefined : parent.horizontalCenter
-        color: contentColor
-        Behavior on color {
-            ColorAnimation {
-                duration: Style.microAnimDuration
-            }
-        }
-        font.pixelSize: root.contentSize
-        font.bold: root.primary
+    background: Rectangle {
+        opacity: enabled ? 1 : 0.3
+        border.width: 1
+        border.color: !root.down && !root.hovered && root.flat ? "transparent" : Style.activeColor3
+        color: !root.down && !root.hovered && root.flat ? "transparent" : (!root.down && root.hovered ? Style.activeColor2 : Style.activeColor1)
+        Behavior on color { ColorAnimation { duration: Style.microAnimDuration } }
     }
 }
