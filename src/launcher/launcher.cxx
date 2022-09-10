@@ -44,6 +44,7 @@ Launcher::Launcher(QObject* parent) : QObject(parent) {
     mData->setParent(this);
     mUiEngine = new QQmlEngine(this);
     mUiEngine->rootContext()->setContextProperty("launcher", mData);
+    mUiEngine->retranslate();
     mUiComponent = new QQmlComponent(mUiEngine, this);
     mUiComponent->loadUrl(QUrl(QStringLiteral("qrc:/launcher/ui/Launcher.qml")));
     mWindow = qobject_cast<QQuickWindow*>(mUiComponent->create());

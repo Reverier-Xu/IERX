@@ -18,6 +18,10 @@
 
 namespace IERX {
 App::App(QObject* parent) : QObject(parent) {
+    mTranslator = new QTranslator(this);
+    auto _ = mTranslator->load(QString(":/i18n/zh.qm"));
+    QApplication::installTranslator(mTranslator);
+
     mLauncher = new Launcher(this);
     mPlatform = new Platform(this);
 }

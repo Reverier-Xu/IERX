@@ -4,8 +4,8 @@ import QtQuick 2.15
 QtObject {
     property color contentColor: '#EEEEEE'
     property color backgroundColor: '#161616'
-    property color accentColor: '#0078D6'
-    property color warningColor: '#ff6033'
+    property color accentColor: '#ff6033'
+    property color warningColor: '#ff3333'
     property color activeColor1: '#10FFFFFF'
     property color activeColor2: '#20FFFFFF'
     property color activeColor3: '#30FFFFFF'

@@ -9,7 +9,7 @@ Rectangle {
     radius: 18
 
     property bool active: false
-    opacity: root.active ? 0.5 : 0.1
+    opacity: root.active ? 0.8 : 0.1
 
     Behavior on opacity {
         NumberAnimation {
@@ -21,11 +21,9 @@ Rectangle {
         id: image
         source: "qrc:/assets/hexagon.svg"
         anchors.centerIn: parent
-        width: 36
-        height: 36
-        sourceSize.width: 36
-        sourceSize.height: 36
-        smooth: true
-        antialiasing: true
+        width: 32
+        height: 32
+        sourceSize.width: 32
+        sourceSize.height: 32
     }
 }

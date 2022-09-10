@@ -9,34 +9,15 @@ Rectangle {
 
     PushButton {
         id: projectButton
-        icon.source: project.available ? "qrc:/assets/star.svg" : "qrc:/assets/star-off.svg"
-        icon.height: 16
-        icon.width: 16
+        icon.source: "qrc:/assets/logo.svg"
+        icon.height: 24
+        icon.width: 24
+        icon.color: "transparent"
         text: qsTr("No Active Project")
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         flat: true
-
-        onClicked: {
-            projectContextMenu.popup(x, y + height)
-        }
-
-        WrappedMenu {
-            id: projectContextMenu
-            padding: 1
-            opacity: visible ? 1 : 0
-
-            Action {
-                text: "Create..."
-            }
-            Action {
-                text: "Open..."
-            }
-            Action {
-                text: "Save..."
-            }
-        }
     }
 
     PushButton {

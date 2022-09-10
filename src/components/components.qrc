@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/components">
+        <file>ui/Hexagon.qml</file>
         <file>ui/qmldir</file>
         <file>ui/Label.qml</file>
-        <file>ui/Loader.qml</file>
+        <file>ui/Loading.qml</file>
         <file>ui/PushButton.qml</file>
         <file>ui/Style.qml</file>
         <file>ui/WrappedMenu.qml</file>

@@ -100,19 +100,29 @@ Window {
             font.pixelSize: 16
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
+            anchors.bottomMargin: 12
         }
 
         Rectangle {
+            id: progressBackground
             height: 1
-            color: "#0078D6"
+            color: Style.activeColor3
             anchors.left: parent.left
-            anchors.leftMargin: 2
+            anchors.leftMargin: 7
+            anchors.right: parent.right
+            anchors.rightMargin: 7
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 2
-            width: (parent.width - 4) * launcher.progress / 100
+            anchors.bottomMargin: 5
 
-            Behavior on width { NumberAnimation { duration: Style.normalAnimDuration; easing.type: Easing.OutExpo } }
+            Rectangle {
+                id: progressBar
+                height: 1
+                color: Style.accentColor
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                width: parent.width * launcher.progress / 100
+                Behavior on width { NumberAnimation { duration: Style.normalAnimDuration; easing.type: Easing.OutExpo } }
+            }
         }
     }
 
@@ -122,7 +132,7 @@ Window {
         repeat: true
         running: true
         onTriggered: {
-            root.animeProc += 1
+            root.animeProc = (root.animeProc + 1) % 114514
         }
     }
 

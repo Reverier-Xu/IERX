@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/launcher">
-        <file>ui/Hexagon.qml</file>
         <file>ui/Launcher.qml</file>
     </qresource>
 </RCC>

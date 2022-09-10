@@ -12,6 +12,7 @@
 
 #include <QObject>
 
+class QTranslator;
 
 namespace IERX {
 class Launcher;
@@ -24,6 +25,8 @@ class App : public QObject {
     Launcher* mLauncher;
 
     Platform* mPlatform;
+
+    QTranslator* mTranslator;
 
    public:
     explicit App(QObject* parent = nullptr);

@@ -30,6 +30,7 @@ Platform::Platform(QObject* parent) : QObject(parent) {
     mUiEngine = new QQmlEngine(this);
     mUiEngine->rootContext()->setContextProperty("platform", mData);
     mUiEngine->rootContext()->setContextProperty("project", m_project);
+    mUiEngine->retranslate();
     mUiComponent = new QQmlComponent(mUiEngine, this);
     mUiComponent->loadUrl(QUrl(QStringLiteral("qrc:/platform/ui/Platform.qml")));
     mWindow = qobject_cast<QQuickWindow*>(mUiComponent->create());

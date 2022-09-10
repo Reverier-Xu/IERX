@@ -6,5 +6,4 @@ Rectangle {
     id: root
     color: Style.backgroundColor
     clip: true
-
 }
