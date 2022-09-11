@@ -9,21 +9,21 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(
-        IERX_PROJECT_SRCS
+        IERX_WORKSPACE_SRCS
         project.cxx
 )
 
 set(
-        IERX_PROJECT_HEADERS
+        IERX_WORKSPACE_HEADERS
         project.h
 )
 
 ierx_add_library(
-        IERXProject
+        IERXWorkspace
         SOURCES
-        ${IERX_PROJECT_SRCS}
+        ${IERX_WORKSPACE_SRCS}
         HEADERS
-        ${IERX_PROJECT_HEADERS}
+        ${IERX_WORKSPACE_HEADERS}
 )
 
-target_link_libraries(IERXProject PRIVATE ${QT_LIBRARIES})
+target_link_libraries(IERXWorkspace PRIVATE ${QT_LIBRARIES})

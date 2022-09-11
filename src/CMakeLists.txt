@@ -8,11 +8,23 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Exported interfaces
+add_subdirectory(interfaces)
 
+# designs, translations and ui resources
 add_subdirectory(resources)
-add_subdirectory(app)
-add_subdirectory(launcher)
-add_subdirectory(platform)
+
+# workspace and project things
+add_subdirectory(workspace)
+
+# reusable ui components
 add_subdirectory(components)
-add_subdirectory(project)
+
+# app launcher
+add_subdirectory(launcher)
+
+# IERX platform
+add_subdirectory(platform)
+
+# the entry of IERX
+add_subdirectory(app)
