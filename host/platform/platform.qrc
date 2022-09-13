@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/platform">
+        <file>ui/Platform.qml</file>
+        <file>ui/SideBar.qml</file>
+        <file>ui/HeadBar.qml</file>
+        <file>ui/StatusBar.qml</file>
+        <file>ui/BottomStack.qml</file>
+        <file>ui/MainStack.qml</file>
+        <file>ui/SideStack.qml</file>
+    </qresource>
+</RCC>

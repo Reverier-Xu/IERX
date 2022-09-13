@@ -1,6 +1,6 @@
 # @file CMakeLists.txt
 # @author Reverier-Xu (reverier.xu[at]woooo.tech)
-# @brief
+# @brief CMakeLists.txt for the project
 # @version 0.1.0
 # @date 2022-09-06
 #
@@ -81,6 +81,10 @@ set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-add_subdirectory(src)
+# IERX Host
+add_subdirectory(host)
+
+# IERX plugins
+add_subdirectory(plugins)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
