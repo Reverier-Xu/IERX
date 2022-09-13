@@ -9,19 +9,19 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(
-        IERX_INTERFACES_SRCS
+    IERX_INTERFACES_SRCS
 )
 
 set(
-        IERX_INTERFACES_HEADERS
+    IERX_INTERFACES_HEADERS
 )
 
 ierx_add_library(
-        IERXInterfaces
-        SOURCES
-        ${IERX_INTERFACES_SRCS}
-        HEADERS
-        ${IERX_INTERFACES_HEADERS}
+    IERXInterfaces
+    SOURCES
+    ${IERX_INTERFACES_SRCS}
+    HEADERS
+    ${IERX_INTERFACES_HEADERS}
 )
 
 target_link_libraries(IERXInterfaces PRIVATE ${QT_LIBRARIES})

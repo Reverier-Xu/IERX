@@ -12,7 +12,7 @@
 #include <QCommandLineParser>
 #include <QFont>
 #include <QIcon>
-#include "app.h"
+#include "application.h"
 
 
 int main(int argc, char* argv[]) {
@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
     parser.addVersionOption();
     parser.process(_app);
 
-    IERX::App app;
+    IERX::Application app;
     app.initialize();
 
     return QApplication::exec();

@@ -18,6 +18,7 @@
 
 #include "project.h"
 
+
 namespace IERX {
 void PlatformDataPrivate_::requestQuit() {
     emit quitRequested();

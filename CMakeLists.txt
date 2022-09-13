@@ -18,16 +18,18 @@ set(VERSION_MAJOR 0)
 set(VERSION_MINOR 1)
 set(VERSION_PATCH 0)
 
-execute_process(COMMAND git describe --always --dirty
-                WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-                OUTPUT_VARIABLE GIT_VERSION
-                OUTPUT_STRIP_TRAILING_WHITESPACE)
+execute_process(
+    COMMAND git describe --always --dirty
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    OUTPUT_VARIABLE GIT_VERSION
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
 message(STATUS "Current build version: ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}.g${GIT_VERSION}\n")
 
 list(
-        APPEND CMAKE_MODULE_PATH
-        ${CMAKE_SOURCE_DIR}/cmake
+    APPEND CMAKE_MODULE_PATH
+    ${CMAKE_SOURCE_DIR}/cmake
 )
 
 include(GenerateExportHeader)
@@ -38,10 +40,10 @@ include(CheckFunctionExists)
 include(IERXMacros)
 
 project(
-        IERX
-        DESCRIPTION "Interactive Explorer for Reverse-engineering X"
-        VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
-        LANGUAGES C CXX
+    IERX
+    DESCRIPTION "Interactive Explorer for Reverse-engineering X"
+    VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
+    LANGUAGES C CXX
 )
 
 set(CMAKE_CXX_STANDARD 17)
@@ -56,8 +58,8 @@ set(IERX_BINARY_VERSION ${VERSION_MAJOR}${VERSION_MINOR})
 # plugin version as used e.g. in plugin installation path
 set(IERX_PLUGIN_VERSION ${VERSION_MAJOR}${VERSION_MINOR})
 
-find_package(Qt6 6.3 REQUIRED COMPONENTS Core Widgets Network Qml Quick Concurrent WebEngineWidgets Sql QuickControls2)
-set(QT_LIBRARIES Qt6::Core Qt6::Widgets Qt6::Network Qt6::Quick Qt6::Qml Qt6::Concurrent Qt6::WebEngineWidgets Qt6::Sql Qt6::QuickControls2)
+find_package(Qt6 6.3 REQUIRED COMPONENTS Core Widgets Network Qml Quick Concurrent Sql QuickControls2)
+set(QT_LIBRARIES Qt6::Core Qt6::Widgets Qt6::Network Qt6::Quick Qt6::Qml Qt6::Concurrent Qt6::Sql Qt6::QuickControls2)
 
 if (APPLE)
     find_package(Qt6 REQUIRED COMPONENTS MacExtras)

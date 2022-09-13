@@ -12,6 +12,7 @@
 
 #include <QObject>
 
+
 namespace IERX {
 class Project : public QObject {
    Q_OBJECT

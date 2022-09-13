@@ -10,10 +10,11 @@
 
 #include "project.h"
 
+
 namespace IERX {
 
 Project::Project(QObject* parent) : QObject(parent) {
-
+    m_name = tr("No Active Project");
 }
 
 Project::~Project() = default;

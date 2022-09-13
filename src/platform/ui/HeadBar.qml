@@ -13,7 +13,7 @@ Rectangle {
         icon.height: 24
         icon.width: 24
         icon.color: "transparent"
-        text: qsTr("No Active Project")
+        text: project.name
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom

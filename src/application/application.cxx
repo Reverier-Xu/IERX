@@ -1,5 +1,5 @@
 /**
- * @file app.cxx
+ * @file application.cxx
  * @author Reverier-Xu (reverier.xu[at]woooo.tech)
  * @brief
  * @version 0.1.0
@@ -9,26 +9,27 @@
  */
 
 
-#include "app.h"
+#include "application.h"
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QtConcurrent>
 #include "launcher.h"
 #include "platform.h"
 
+
 namespace IERX {
-App::App(QObject* parent) : QObject(parent) {
+Application::Application(QObject* parent) : QObject(parent) {
     mTranslator = new QTranslator(this);
-    auto _ = mTranslator->load(QString(":/i18n/zh.qm"));
+    auto _ = mTranslator->load(QStringLiteral(":/i18n/zh_CN.qm"));
     QApplication::installTranslator(mTranslator);
 
     mLauncher = new Launcher(this);
     mPlatform = new Platform(this);
 }
 
-App::~App() = default;
+Application::~Application() = default;
 
-void App::initialize() {
+void Application::initialize() {
     mLauncher->show();
     connect(mPlatform, &Platform::initStateChanged, [=](const QString& tips, int progress) {
         mLauncher->setTips(tips);

@@ -9,27 +9,27 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(
-        RESOURCES
-        platform.qrc
+    RESOURCES
+    platform.qrc
 )
 
 set(
-        IERX_PLATFORM_SRCS
-        platform.cxx
+    IERX_PLATFORM_SRCS
+    platform.cxx
 )
 
 set(
-        IERX_PLATFORM_HEADERS
-        platform.h
+    IERX_PLATFORM_HEADERS
+    platform.h
 )
 
 ierx_add_library(
-        IERXPlatform
-        SOURCES
-        ${IERX_PLATFORM_SRCS}
-        ${RESOURCES}
-        HEADERS
-        ${IERX_PLATFORM_HEADERS}
+    IERXPlatform
+    SOURCES
+    ${IERX_PLATFORM_SRCS}
+    ${RESOURCES}
+    HEADERS
+    ${IERX_PLATFORM_HEADERS}
 )
 
 target_link_libraries(IERXPlatform PRIVATE ${QT_LIBRARIES} IERX::Resources IERX::Components IERX::Workspace)

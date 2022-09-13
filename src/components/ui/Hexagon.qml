@@ -1,5 +1,5 @@
-import QtQuick 2.15
-import "qrc:/components/ui"
+import QtQuick 6.3
+import "."
 
 Rectangle {
     id: root

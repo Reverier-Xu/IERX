@@ -14,6 +14,7 @@
 #include <QQmlComponent>
 #include <QQuickWindow>
 
+
 namespace IERX {
 QString LauncherDataPrivate_::tips() const {
     return mTips;

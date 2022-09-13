@@ -1,5 +1,5 @@
 /**
- * @file app.h
+ * @file application.h
  * @author Reverier-Xu (reverier.xu[at]woooo.tech)
  * @brief
  * @version 0.1.0
@@ -12,6 +12,7 @@
 
 #include <QObject>
 
+
 class QTranslator;
 
 namespace IERX {
@@ -19,7 +20,7 @@ class Launcher;
 
 class Platform;
 
-class App : public QObject {
+class Application : public QObject {
    Q_OBJECT
    private:
     Launcher* mLauncher;
@@ -29,9 +30,9 @@ class App : public QObject {
     QTranslator* mTranslator;
 
    public:
-    explicit App(QObject* parent = nullptr);
+    explicit Application(QObject* parent = nullptr);
 
-    ~App() override;
+    ~Application() override;
 
     void initialize();
 };

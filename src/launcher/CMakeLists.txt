@@ -9,27 +9,27 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(
-        RESOURCES
-        launcher.qrc
+    RESOURCES
+    launcher.qrc
 )
 
 set(
-        IERX_LAUNCHER_SRCS
-        launcher.cxx
+    IERX_LAUNCHER_SRCS
+    launcher.cxx
 )
 
 set(
-        IERX_LAUNCHER_HEADERS
-        launcher.h
+    IERX_LAUNCHER_HEADERS
+    launcher.h
 )
 
 ierx_add_library(
-        IERXLauncher
-        SOURCES
-        ${IERX_LAUNCHER_SRCS}
-        ${RESOURCES}
-        HEADERS
-        ${IERX_LAUNCHER_HEADERS}
+    IERXLauncher
+    SOURCES
+    ${IERX_LAUNCHER_SRCS}
+    ${RESOURCES}
+    HEADERS
+    ${IERX_LAUNCHER_HEADERS}
 )
 
 target_link_libraries(IERXLauncher PRIVATE ${QT_LIBRARIES} IERX::Resources IERX::Components)

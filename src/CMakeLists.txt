@@ -20,11 +20,11 @@ add_subdirectory(workspace)
 # reusable ui components
 add_subdirectory(components)
 
-# app launcher
+# application launcher
 add_subdirectory(launcher)
 
 # IERX platform
 add_subdirectory(platform)
 
 # the entry of IERX
-add_subdirectory(app)
+add_subdirectory(application)
