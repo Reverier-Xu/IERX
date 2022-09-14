@@ -29,7 +29,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            icon.source: "qrc:/assets/subtract-filled.svg"
+            icon.source: "qrc:/assets/subtract.svg"
             icon.height: 16
             icon.width: 16
             flat: true
@@ -41,7 +41,7 @@ Rectangle {
             anchors.right: minimizeButton.left
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            icon.source: "qrc:/assets/settings-filled.svg"
+            icon.source: "qrc:/assets/settings.svg"
             icon.height: 16
             icon.width: 16
             flat: true

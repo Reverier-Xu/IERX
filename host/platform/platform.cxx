@@ -15,8 +15,10 @@
 #include <QQmlComponent>
 #include <QQuickWindow>
 #include <QThread>
+#include <QTimer>
 
 #include "project.h"
+#include "systeminfo.h"
 
 
 namespace IERX {
@@ -24,21 +26,76 @@ void PlatformDataPrivate_::requestQuit() {
     emit quitRequested();
 }
 
-Platform::Platform(QObject* parent) : QObject(parent) {
-    mData = new PlatformDataPrivate_();
-    mData->setParent(this);
-    m_project = new Project(this);
-    mUiEngine = new QQmlEngine(this);
-    mUiEngine->rootContext()->setContextProperty("platform", mData);
-    mUiEngine->rootContext()->setContextProperty("project", m_project);
-    mUiEngine->retranslate();
-    mUiComponent = new QQmlComponent(mUiEngine, this);
-    mUiComponent->loadUrl(QUrl(QStringLiteral("qrc:/platform/ui/Platform.qml")));
-    mWindow = qobject_cast<QQuickWindow*>(mUiComponent->create());
-    mWindow->hide();
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "readability-convert-member-functions-to-static"
+quint64 PlatformDataPrivate_::memoryUsed() const {
+    return SystemInfo::totalMemory() - SystemInfo::availableMemory();
+}
+#pragma clang diagnostic pop
 
-    connect(mData, &PlatformDataPrivate_::quitRequested, this, [=]() {
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "readability-convert-member-functions-to-static"
+quint64 PlatformDataPrivate_::memoryTotal() const {
+    return SystemInfo::totalMemory();
+}
+#pragma clang diagnostic pop
+
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "readability-convert-member-functions-to-static"
+quint64 PlatformDataPrivate_::diskUsed() const {
+    return SystemInfo::totalDiskSpace() - SystemInfo::availableDiskSpace();
+}
+#pragma clang diagnostic pop
+
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "readability-convert-member-functions-to-static"
+quint64 PlatformDataPrivate_::diskTotal() const {
+    return SystemInfo::totalDiskSpace();
+}
+#pragma clang diagnostic pop
+
+void PlatformDataPrivate_::setMemoryUsed(quint64 n) {
+    Q_UNUSED(n)
+    emit memoryUsedChanged(memoryUsed());
+}
+
+void PlatformDataPrivate_::setMemoryTotal(quint64 n) {
+    Q_UNUSED(n)
+    emit memoryTotalChanged(memoryTotal());
+}
+
+void PlatformDataPrivate_::setDiskUsed(quint64 n) {
+    Q_UNUSED(n)
+    emit diskUsedChanged(diskUsed());
+}
+
+void PlatformDataPrivate_::setDiskTotal(quint64 n) {
+    Q_UNUSED(n)
+    emit diskTotalChanged(diskTotal());
+}
+
+Platform::Platform(QObject* parent) : QObject(parent) {
+    m_data = new PlatformDataPrivate_();
+    m_data->setParent(this);
+    m_project = new Project(this);
+    m_uiEngine = new QQmlEngine(this);
+    m_uiEngine->rootContext()->setContextProperty("platform", m_data);
+    m_uiEngine->rootContext()->setContextProperty("project", m_project);
+    m_uiEngine->retranslate();
+    m_uiComponent = new QQmlComponent(m_uiEngine, this);
+    m_uiComponent->loadUrl(QUrl(QStringLiteral("qrc:/platform/ui/Platform.qml")));
+    m_window = qobject_cast<QQuickWindow*>(m_uiComponent->create());
+    m_window->hide();
+    m_sysinfoTimer = new QTimer(this);
+    m_sysinfoTimer->setInterval(5000);
+    m_sysinfoTimer->start();
+
+    connect(m_data, &PlatformDataPrivate_::quitRequested, this, [=]() {
         handleQuit();
+    });
+    connect(m_sysinfoTimer, &QTimer::timeout, this, [=]() {
+        m_data->setDiskUsed(0);
+        m_data->setMemoryUsed(0);
     });
 }
 
@@ -53,7 +110,7 @@ void Platform::initialize() {
     emit initStateChanged(tr("Loading Plugins..."), 40);
     QThread::msleep(500);
     emit initStateChanged(tr("Loading Plugins..."), 55);
-    QThread::msleep(500);
+    QThread::msleep(1200);
     emit initStateChanged(tr("Loading Plugins..."), 70);
     QThread::msleep(500);
     emit initStateChanged(tr("Cleaning up..."), 95);
@@ -63,14 +120,14 @@ void Platform::initialize() {
 }
 
 void Platform::show() {
-    mWindow->show();
+    m_window->show();
 }
 
 void Platform::handleQuit() {
-    mWindow->close();
-    mWindow->deleteLater();
-    mUiComponent->deleteLater();
-    mUiEngine->deleteLater();
+    m_window->close();
+    m_window->deleteLater();
+    m_uiComponent->deleteLater();
+    m_uiEngine->deleteLater();
     QApplication::exit(0);
 }
 

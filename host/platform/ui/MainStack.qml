@@ -28,7 +28,7 @@ Rectangle {
             anchors.right: moreButton.left
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            icon.source: "qrc:/assets/chevron-down-filled.svg"
+            icon.source: "qrc:/assets/chevron-down.svg"
             icon.height: 16
             icon.width: 16
             flat: true
@@ -40,7 +40,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            icon.source: "qrc:/assets/more-horizontal-filled.svg"
+            icon.source: "qrc:/assets/more-horizontal.svg"
             icon.height: 16
             icon.width: 16
             flat: true

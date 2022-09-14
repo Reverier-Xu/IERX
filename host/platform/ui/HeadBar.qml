@@ -21,11 +21,23 @@ Rectangle {
     }
 
     PushButton {
-        id: aboutButton
-        icon.source: "qrc:/assets/info-filled.svg"
+        id: taskButton
+        icon.source: "qrc:/assets/flash.svg"
         icon.height: 16
         icon.width: 16
-        anchors.right: settingsButton.left
+        anchors.right: alertButton.left
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        flat: true
+        text: "IDLE"
+    }
+
+    PushButton {
+        id: alertButton
+        icon.source: "qrc:/assets/alert.svg"
+        icon.height: 16
+        icon.width: 16
+        anchors.right: navigationButton.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         flat: true
@@ -33,8 +45,8 @@ Rectangle {
     }
 
     PushButton {
-        id: settingsButton
-        icon.source: "qrc:/assets/settings-filled.svg"
+        id: navigationButton
+        icon.source: "qrc:/assets/navigation.svg"
         icon.height: 16
         icon.width: 16
         anchors.right: parent.right

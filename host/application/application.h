@@ -23,11 +23,11 @@ class Platform;
 class Application : public QObject {
    Q_OBJECT
    private:
-    Launcher* mLauncher;
+    Launcher* m_launcher;
 
-    Platform* mPlatform;
+    Platform* m_platform;
 
-    QTranslator* mTranslator;
+    QTranslator* m_translator;
 
    public:
     explicit Application(QObject* parent = nullptr);

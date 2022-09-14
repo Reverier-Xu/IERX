@@ -11,7 +11,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        icon.source: "qrc:/assets/align-left-filled.svg"
+        icon.source: "qrc:/assets/panel-left-contract.svg"
         icon.height: 16
         icon.width: 16
         flat: true

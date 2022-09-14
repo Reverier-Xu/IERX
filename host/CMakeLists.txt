@@ -8,6 +8,9 @@
 
 cmake_minimum_required(VERSION 3.16)
 
+# global utilities
+add_subdirectory(utilities)
+
 # models and interface definitions
 add_subdirectory(interfaces)
 

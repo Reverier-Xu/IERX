@@ -32,4 +32,4 @@ ierx_add_library(
     ${IERX_PLATFORM_HEADERS}
 )
 
-target_link_libraries(IERXPlatform PRIVATE ${QT_LIBRARIES} IERX::Resources IERX::Components IERX::Workspace)
+target_link_libraries(IERXPlatform PRIVATE ${QT_LIBRARIES} IERX::Resources IERX::Components IERX::Workspace IERX::Utilities)

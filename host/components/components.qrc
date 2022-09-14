@@ -4,6 +4,7 @@
         <file>ui/qmldir</file>
         <file>ui/Label.qml</file>
         <file>ui/Loading.qml</file>
+        <file>ui/ProgressButton.qml</file>
         <file>ui/PushButton.qml</file>
         <file>ui/Style.qml</file>
         <file>ui/WrappedMenu.qml</file>

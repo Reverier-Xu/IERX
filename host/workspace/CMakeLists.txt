@@ -10,12 +10,16 @@ cmake_minimum_required(VERSION 3.16)
 
 set(
     IERX_WORKSPACE_SRCS
+    workspace.cxx
     project.cxx
+    tasks.cxx
 )
 
 set(
     IERX_WORKSPACE_HEADERS
+    workspace.h
     project.h
+    tasks.h
 )
 
 ierx_add_library(

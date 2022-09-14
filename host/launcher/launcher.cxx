@@ -17,27 +17,27 @@
 
 namespace IERX {
 QString LauncherDataPrivate_::tips() const {
-    return mTips;
+    return m_tips;
 }
 
 int LauncherDataPrivate_::progress() const {
-    return mProgress;
+    return m_progress;
 }
 
 void LauncherDataPrivate_::setTips(QString tips) {
-    if (mTips == tips)
+    if (m_tips == tips)
         return;
 
-    mTips = std::move(tips);
-    emit tipsChanged(mTips);
+    m_tips = std::move(tips);
+    emit tipsChanged(m_tips);
 }
 
 void LauncherDataPrivate_::setProgress(int progress) {
-    if (mProgress == progress)
+    if (m_progress == progress)
         return;
 
-    mProgress = progress;
-    emit progressChanged(mProgress);
+    m_progress = progress;
+    emit progressChanged(m_progress);
 }
 
 Launcher::Launcher(QObject* parent) : QObject(parent) {

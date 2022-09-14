@@ -19,31 +19,31 @@
 
 namespace IERX {
 Application::Application(QObject* parent) : QObject(parent) {
-    mTranslator = new QTranslator(this);
-    auto _ = mTranslator->load(QStringLiteral(":/i18n/zh_CN.qm"));
-    QApplication::installTranslator(mTranslator);
+    m_translator = new QTranslator(this);
+    auto _ = m_translator->load(QStringLiteral(":/i18n/zh_CN.qm"));
+    QApplication::installTranslator(m_translator);
 
-    mLauncher = new Launcher(this);
-    mPlatform = new Platform(this);
+    m_launcher = new Launcher(this);
+    m_platform = new Platform(this);
 }
 
 Application::~Application() = default;
 
 void Application::initialize() {
-    mLauncher->show();
-    connect(mPlatform, &Platform::initStateChanged, [=](const QString& tips, int progress) {
-        mLauncher->setTips(tips);
-        mLauncher->setProgress(progress);
+    m_launcher->show();
+    connect(m_platform, &Platform::initStateChanged, [=](const QString& tips, int progress) {
+        m_launcher->setTips(tips);
+        m_launcher->setProgress(progress);
     });
     auto initPromise = QtConcurrent::run([=]() {
-        mPlatform->initialize();
+        m_platform->initialize();
     });
     auto initWatcher = new QFutureWatcher<void>(this);
     initWatcher->setFuture(initPromise);
     connect(initWatcher, &QFutureWatcher<void>::finished, [=]() {
         initWatcher->deleteLater();
-        mLauncher->finish();
-        mPlatform->show();
+        m_launcher->finish();
+        m_platform->show();
     });
 }
 

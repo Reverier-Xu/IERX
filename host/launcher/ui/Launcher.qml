@@ -81,6 +81,16 @@ Window {
         }
 
         Image {
+            id: logoStroked
+            source: "qrc:/assets/logo-stroked.svg"
+            anchors.centerIn: parent
+            sourceSize.width: 128
+            sourceSize.height: 128
+            width: 128
+            height: 128
+        }
+
+        Image {
             id: logo
             property bool active: root.animeProc > 1
             source: "qrc:/assets/logo.svg"
@@ -89,8 +99,8 @@ Window {
             sourceSize.height: 128
             width: 128
             height: 128
-            opacity: active ? 1 : 0
-            Behavior on opacity { NumberAnimation { duration: Style.longAnimDuration } }
+            opacity: (launcher.progress / 60) > 1 ? 1 : (launcher.progress / 60)
+            Behavior on opacity { NumberAnimation { duration: Style.normalAnimDuration } }
         }
 
         Text {

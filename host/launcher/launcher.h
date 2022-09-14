@@ -26,9 +26,9 @@ class LauncherDataPrivate_ : public QObject {
     Q_PROPERTY(int progress READ progress WRITE setProgress NOTIFY progressChanged)
 
    private:
-    QString mTips{};
+    QString m_tips{};
 
-    int mProgress{};
+    int m_progress{};
 
    public:
     [[nodiscard]] QString tips() const;
