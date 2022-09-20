@@ -4,16 +4,8 @@ import os
 
 folders = [i for i in os.listdir('.') if os.path.isdir(i)]
 
-qrc_content_start = \
-    '''
-    <RCC>
-        <qresource prefix="/">
-    '''
-qrc_content_end = \
-    '''
-        </qresource>
-    </RCC>
-    '''
+qrc_content_start = '''<RCC>\n    <qresource prefix="/">\n'''
+qrc_content_end = '''     </qresource>\n</RCC>\n'''
 
 qrc_content = qrc_content_start
 

@@ -1,6 +1,6 @@
 # @file CMakeLists.txt
 # @author Reverier-Xu (reverier.xu[at]woooo.tech)
-# @brief the host platform for the project
+# @brief the src platform for the project
 # @version 0.1.0
 # @date 2022-09-14
 #

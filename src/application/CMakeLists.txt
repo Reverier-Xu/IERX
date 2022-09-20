@@ -1,6 +1,6 @@
 # @file CMakeLists.txt
 # @author Reverier-Xu (reverier.xu[at]woooo.tech)
-# @brief the entry of host application
+# @brief the entry of src application
 # @version 0.1.0
 # @date 2022-09-06
 #

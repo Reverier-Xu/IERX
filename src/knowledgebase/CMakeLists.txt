@@ -1,8 +1,8 @@
 # @file CMakeLists.txt
 # @author Reverier-Xu (reverier.xu[at]woooo.tech)
-# @brief the plugin api and management for the project
+# @brief knowledge base
 # @version 0.1.0
-# @date 2022-09-13
+# @date 2022-09-16
 #
 # @copyright 2022 Woo Tech
 
