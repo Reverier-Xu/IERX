@@ -88,6 +88,7 @@ Window {
             sourceSize.height: 128
             width: 128
             height: 128
+            opacity: 0.4
         }
 
         Image {

@@ -1,4 +1,3 @@
-
 <RCC>
     <qresource prefix="/">
         <file>i18n/zh_CN.qm</file>
@@ -778,6 +777,7 @@
         <file>assets/add-square-multiple-filled.svg</file>
         <file>assets/calendar-question-mark.svg</file>
         <file>assets/sport-soccer.svg</file>
+        <file>assets/logo-stroked.svg</file>
         <file>assets/next.svg</file>
         <file>assets/desktop-edit.svg</file>
         <file>assets/emoji.svg</file>
@@ -1702,7 +1702,6 @@
         <file>assets/bowl-chopsticks-filled.svg</file>
         <file>assets/app-folder.svg</file>
         <file>assets/laptop-dismiss.svg</file>
-        <file>assets/logo-stroked.svg</file>
         <file>assets/people-checkmark.svg</file>
         <file>assets/chevron-double-down.svg</file>
         <file>assets/calendar-day.svg</file>
@@ -1817,6 +1816,6 @@
         <file>assets/star-off.svg</file>
         <file>assets/send-filled.svg</file>
         <file>assets/document-header-arrow-down.svg</file>
-    </qresource>
+     </qresource>
 </RCC>
-    
+

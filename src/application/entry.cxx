@@ -11,6 +11,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QFont>
+#include <QFontDatabase>
 #include <QIcon>
 #include "application.h"
 

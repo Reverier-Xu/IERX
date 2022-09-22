@@ -12,12 +12,22 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        icon.source: "qrc:/assets/panel-left-contract.svg"
+        icon.source: "qrc:/assets/chevron-double-down.svg"
         icon.height: 16
         icon.width: 16
         flat: true
         width: 32
-        rotation: 270
+        enabled: project.available
+        rotation: platform.showBottomStack ? 0 : 180
+        Behavior on rotation {
+            NumberAnimation {
+                duration: Style.normalAnimDuration
+                easing.type: Easing.OutQuad
+            }
+        }
+        onClicked: {
+            platform.showBottomStack = !platform.showBottomStack
+        }
     }
 
     ProgressButton {

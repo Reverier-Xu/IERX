@@ -7,6 +7,8 @@ Rectangle {
     color: Style.backgroundColor
     clip: true
 
+    visible: platform.showSideStack
+
     Rectangle {
         id: sideStackHeader
         anchors.left: parent.left

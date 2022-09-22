@@ -74,6 +74,31 @@ void PlatformDataPrivate_::setDiskTotal(quint64 n) {
     emit diskTotalChanged(diskTotal());
 }
 
+quint64 PlatformDataPrivate_::showSideStack() const {
+    return m_showSideStack;
+}
+
+quint64 PlatformDataPrivate_::showBottomStack() const {
+    return m_showBottomStack;
+}
+
+void PlatformDataPrivate_::setShowSideStack(bool n) {
+    if (m_showSideStack == n) {
+        return;
+    }
+    m_showSideStack = n;
+    emit showSideStackChanged(n);
+
+}
+
+void PlatformDataPrivate_::setShowBottomStack(bool n) {
+    if (m_showBottomStack == n) {
+        return;
+    }
+    m_showBottomStack = n;
+    emit showBottomStackChanged(n);
+}
+
 Platform::Platform(QObject* parent) : QObject(parent) {
     m_data = new PlatformDataPrivate_();
     m_data->setParent(this);

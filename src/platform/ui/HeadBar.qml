@@ -9,10 +9,7 @@ Rectangle {
 
     PushButton {
         id: projectButton
-        icon.source: "qrc:/assets/logo.svg"
-        icon.height: 24
-        icon.width: 24
-        icon.color: "transparent"
+        icon.source: "qrc:/assets/logo-stroked.svg"
         text: project.name
         anchors.left: parent.left
         anchors.top: parent.top
@@ -26,12 +23,13 @@ Rectangle {
         anchors.leftMargin: 16
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        anchors.right: taskButton.left
 
         PushButton {
             id: fileButton
             text: qsTr("File")
             flat: true
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             enabled: project.available
         }
 
@@ -41,33 +39,6 @@ Rectangle {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             flat: true
-        }
-
-        PushButton {
-            id: explorerButton
-            text: qsTr("Explorer")
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            flat: true
-            enabled: project.available
-        }
-
-        PushButton {
-            id: binaryButton
-            text: qsTr("Binary")
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            flat: true
-            enabled: project.available
-        }
-
-        PushButton {
-            id: forensicsButton
-            text: qsTr("Forensics")
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            flat: true
-            enabled: project.available
         }
 
         PushButton {
@@ -87,9 +58,8 @@ Rectangle {
         }
     }
 
-
     PushButton {
-        id: taskButton
+        id: engineStatusButton
         icon.source: "qrc:/assets/flash.svg"
         icon.height: 16
         icon.width: 16
@@ -97,7 +67,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         flat: true
-        text: "IDLE"
+        width: 32
     }
 
     PushButton {

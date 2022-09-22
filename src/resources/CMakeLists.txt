@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.16)
 
 set(
     RESOURCES
-    icons.qrc
+    resources.qrc
 )
 
 ierx_add_library(

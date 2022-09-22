@@ -8,6 +8,8 @@ Rectangle {
     color: Style.backgroundColor
     clip: true
 
+    visible: platform.showBottomStack
+
     Rectangle {
         id: bottomStackHeader
         anchors.left: parent.left

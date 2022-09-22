@@ -7,5 +7,6 @@
         <file>ui/BottomStack.qml</file>
         <file>ui/MainStack.qml</file>
         <file>ui/SideStack.qml</file>
+        <file>ui/EmptyPage.qml</file>
     </qresource>
 </RCC>

@@ -1,5 +1,6 @@
 import QtQuick 6.3
 import QtQuick.Controls 6.3
+import QtQuick.Layouts 6.3
 import "qrc:/components/ui"
 
 Rectangle {
@@ -45,6 +46,19 @@ Rectangle {
             icon.width: 16
             flat: true
             width: 32
+        }
+    }
+
+    StackLayout {
+        id: mainStackLayout
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: mainStackHeader.bottom
+        anchors.bottom: parent.bottom
+        clip: true
+
+        EmptyPage {
+            id: emptyPage
         }
     }
 }
