@@ -5,6 +5,7 @@ import "."
 
 Button {
     id: root
+    font.pixelSize: 16
     background: Rectangle {
         opacity: enabled ? 1 : 0.3
         border.width: 1

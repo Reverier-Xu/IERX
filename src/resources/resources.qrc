@@ -1816,6 +1816,7 @@
         <file>assets/star-off.svg</file>
         <file>assets/send-filled.svg</file>
         <file>assets/document-header-arrow-down.svg</file>
+        <file>fonts/sarasa-mono-sc-regular.ttf</file>
      </qresource>
 </RCC>
 

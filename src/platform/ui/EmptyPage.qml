@@ -28,13 +28,13 @@ Rectangle {
         font.bold: true
     }
 
-    Text {
+    PushButton {
         id: tipsText
         text: project.available ? qsTr("Start your explore") : qsTr("Create a project to start")
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: welcomeText.bottom
         anchors.topMargin: 8
-        font.pixelSize: 16
-        color: Style.contentColor
+        height: 32
+        flat: true
     }
 }

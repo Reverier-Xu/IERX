@@ -10,7 +10,6 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QFont>
 #include <QFontDatabase>
 #include <QIcon>
 #include "application.h"
@@ -23,6 +22,10 @@ int main(int argc, char* argv[]) {
     QApplication::setOrganizationName("Wootec");
     QApplication::setOrganizationDomain("woooo.tech");
     QApplication::setWindowIcon(QIcon(":/assets/logo.svg"));
+
+    QFontDatabase::addApplicationFont(":/fonts/sarasa-mono-sc-regular.ttf");
+    auto defaultFont = QFont("Sarasa Mono SC");
+    QApplication::setFont(defaultFont);
 
     QCommandLineParser parser;
     parser.setApplicationDescription("A reverse-engineering and digital forensic tool.");
