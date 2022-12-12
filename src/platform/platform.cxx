@@ -127,21 +127,23 @@ Platform::Platform(QObject* parent) : QObject(parent) {
 Platform::~Platform() = default;
 
 void Platform::initialize() {
-    QThread::sleep(1);
+    QThread::msleep(100);
     emit initStateChanged(tr("Initializing..."), 5);
-    QThread::sleep(2);
+    QThread::msleep(100);
+    emit initStateChanged(tr("Checking License..."), 10);
+    QThread::msleep(1000);
     emit initStateChanged(tr("Loading Platform..."), 25);
-    QThread::sleep(1);
+    QThread::msleep(1200);
     emit initStateChanged(tr("Loading Plugins..."), 40);
     QThread::msleep(500);
     emit initStateChanged(tr("Loading Plugins..."), 55);
-    QThread::msleep(1200);
+    QThread::msleep(700);
     emit initStateChanged(tr("Loading Plugins..."), 70);
-    QThread::msleep(500);
+    QThread::msleep(300);
     emit initStateChanged(tr("Cleaning up..."), 95);
-    QThread::msleep(500);
+    QThread::msleep(1000);
     emit initStateChanged(tr("Welcome to IERX!"), 100);
-    QThread::sleep(1);
+    QThread::msleep(1000);
 }
 
 void Platform::show() {

@@ -58,20 +58,8 @@ set(IERX_BINARY_VERSION ${VERSION_MAJOR}${VERSION_MINOR})
 # plugin version as used e.g. in plugin installation path
 set(IERX_PLUGIN_VERSION ${VERSION_MAJOR}${VERSION_MINOR})
 
-find_package(Qt6 6.3 REQUIRED COMPONENTS Core Widgets Network Qml Quick Concurrent Sql QuickControls2)
-set(QT_LIBRARIES Qt6::Core Qt6::Widgets Qt6::Network Qt6::Quick Qt6::Qml Qt6::Concurrent Qt6::Sql Qt6::QuickControls2)
-
-if (APPLE)
-    find_package(Qt6 REQUIRED COMPONENTS MacExtras)
-    list(APPEND QT_LIBRARIES Qt6::MacExtras)
-elseif (WIN32)
-    find_package(Qt6 REQUIRED COMPONENTS WinExtras)
-    list(APPEND QT_LIBRARIES Qt6::WinExtras)
-else ()
-    find_package(Qt6 REQUIRED COMPONENTS DBus)
-    list(APPEND QT_LIBRARIES Qt6::DBus)
-    get_target_property(QT_DBUSXML2CPP_EXECUTABLE Qt6::qdbusxml2cpp LOCATION)
-endif ()
+find_package(Qt6 6.4 REQUIRED COMPONENTS Core Widgets Network Qml Quick Concurrent Sql QuickControls2 Multimedia)
+set(QT_LIBRARIES Qt::Core Qt::Widgets Qt::Network Qt::Quick Qt::Qml Qt::Concurrent Qt::Sql Qt::QuickControls2 Qt::Multimedia)
 
 qt_standard_project_setup()
 

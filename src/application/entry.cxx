@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
     QApplication::setWindowIcon(QIcon(":/assets/logo.svg"));
 
     QCommandLineParser parser;
-    parser.setApplicationDescription("Interactive Explorer of Reverse-engineering X.");
+    parser.setApplicationDescription("A reverse-engineering and digital forensic tool.");
     parser.addHelpOption();
     parser.addVersionOption();
     parser.process(_app);

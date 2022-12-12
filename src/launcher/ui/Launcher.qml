@@ -100,7 +100,7 @@ Window {
             sourceSize.height: 128
             width: 128
             height: 128
-            opacity: (launcher.progress / 60) > 1 ? 1 : (launcher.progress / 60)
+            opacity: (launcher.progress / 80) > 1 ? 1 : (launcher.progress / 80)
             Behavior on opacity { NumberAnimation { duration: Style.normalAnimDuration } }
         }
 

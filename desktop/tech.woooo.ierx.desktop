@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IERX
+GenericName=Interactive Explorer of Reversing X
+Comment=A reverse-engineering and digital forensic tool.
+Exec=ierx %U
+TryExec=ierx
+Icon=tech.woooo.ierx
+Terminal=false
+Categories=Development;
+StartupWMClass=IERX

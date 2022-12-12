@@ -35,7 +35,7 @@ Rectangle {
         anchors.right: minimizeButton.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        width: 160
+        width: 200
         currentValue: platform.memoryUsed
         maxValue: platform.memoryTotal
         currentText: (platform.memoryUsed / 1024 / 1024).toFixed(0) + "MiB"
