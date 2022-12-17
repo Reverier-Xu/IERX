@@ -11,9 +11,11 @@
 #include "systeminfo.h"
 
 #include <QtGlobal>
+
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif
+
 #ifdef Q_OS_MAC
 #include <mach/vm_statistics.h>
 #include <mach/mach_types.h>
@@ -21,12 +23,12 @@
 #include <mach/mach_host.h>
 #include <mach/vm_map.h>
 #endif
+
 #ifdef Q_OS_LINUX
 #include <sys/sysinfo.h>
-#include <QStorageInfo>
-
-
 #endif
+
+#include <QStorageInfo>
 
 namespace IERX {
 
